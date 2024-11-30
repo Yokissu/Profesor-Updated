@@ -429,13 +429,17 @@ async def cb_handler(client: Client, query: CallbackQuery):
 
     elif query.data == "start":                        
         buttons = [[
-            InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
+            InlineKeyboardButton("• Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ •", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
             ],[
-            InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''), 
-            InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/mkn_bots_updates")
+            InlineKeyboardButton("📌 ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📌", url="http://t.me/kissuXbots")
+            ],[
+            InlineKeyboardButton("•Mᴏᴠɪᴇs-ᴄʜᴀɴɴᴇʟ ", url="https://t.me/+JsbZsEJK2WE2MzY9"), 
+            InlineKeyboardButton("•Mᴏᴠɪᴇs-Gʀᴏᴜᴘ ", url="https://t.me/ur_movie_group")
             ],[      
-            InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
-            InlineKeyboardButton("Aʙᴏᴜᴛ ✨", callback_data="about")
+            InlineKeyboardButton("•Hᴇʟᴩ 🕸️", callback_data="help"),
+            InlineKeyboardButton("Aʙᴏᴜᴛ 🪴", callback_data="about")
+        ],[
+            InlineKeyboardButton('❗❗ᴅɪsᴄʟᴀɪᴍᴇʀ❗❗', callback_data='source')
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), START_MESSAGE.format(user=query.from_user.mention, bot=client.mention), enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
        
@@ -443,6 +447,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('⚙️ Aᴅᴍɪɴ Pᴀɴᴇʟ ⚙️', 'admin')            
             ],[
+            InlineKeyboardButton('🛰️ ʀᴇɴᴅᴇʀɪɴɢ ꜱᴛᴀᴛᴜꜱ ☁️',callback_data='about')
+           ],[
             InlineKeyboardButton('Fɪʟᴛᴇʀꜱ', 'openfilter'),
             InlineKeyboardButton('Cᴏɴɴᴇᴄᴛ', 'coct')
             ],[                       
@@ -457,20 +463,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.HELP_TXT.format(query.from_user.mention), enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))     
         
+
     elif query.data == "about":
         buttons= [[
-            InlineKeyboardButton('Sᴏᴜʀᴄᴇ Cᴏᴅᴇ 📜', 'source')
-            ],[
-            InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
-            InlineKeyboardButton('« Bᴀᴄᴋ', 'start')          
+            InlineKeyboardButton('× ᴀʟʟ ᴏᴜʀ ʟɪɴᴋꜱ ×', url="https://t.me/kissuXbots/42")
+       ],[
+            InlineKeyboardButton('•ᴍᴏᴠɪᴇs ʀᴇǫᴜᴇsᴛ ɢʀᴏᴜᴘ•', url="t.me/ur_movie_group")
+        ],[
+            InlineKeyboardButton('•Cᴏᴘʏʀɪɢʜᴛ Mᴏᴠɪᴇs•', url="https://t.me/+JsbZsEJK2WE2MzY9")
+        ],[
+            InlineKeyboardButton('•Cᴏᴍʙɪɴᴇᴅ Sᴇʀɪᴇs•', url="https://t.me/+JsbZsEJK2WE2MzY9")
+       ],[ 
+            InlineKeyboardButton('◁ ʙᴀᴄᴋ', callback_data='start')
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.ABOUT_TXT.format(temp.B_NAME), enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ', url='https://github.com/MrMKN/PROFESSOR-BOT')
-            ],[
-            InlineKeyboardButton('‹ Bᴀᴄᴋ', 'about')
+            InlineKeyboardButton('× ᴀʟʟ ᴏᴜʀ ʟɪɴᴋꜱ ×', url="https://t.me/kissuXbots/42")
+       ],[
+            InlineKeyboardButton('• ᴜᴘᴅᴀᴛᴇs •', url="t.me/kissuXbots"),
+            InlineKeyboardButton('◁ ʙᴀᴄᴋ', callback_data='about')
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.SOURCE_TXT, enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
       
@@ -599,10 +612,3 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 InlineKeyboardButton(f"ᴡᴇʟᴄᴏᴍᴇ ᴍᴇꜱꜱᴀɢᴇ : {'ᴏɴ' if settings['welcome'] else 'ᴏꜰꜰ'}", f'setgs#welcome#{settings["welcome"]}#{str(grp_id)}')
             ]]
             await query.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
-
-
-
-
-
-
-
